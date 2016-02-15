@@ -14,7 +14,19 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("categories", [{"name":"name","type":"string"},{"name":"stock","type":"int"},{"name":"infinite_stock","type":"boolean"},{"name":"product_id","type":"int"}])
+        this.createTable("categories", [{
+          "name": "name",
+          "type": "string"
+        }, {
+          "name": "stock",
+          "type": "int"
+        }, {
+          "name": "infiniteStock",
+          "type": "boolean"
+        }, {
+          "name": "productId",
+          "type": "int"
+        }])
       ];
 
     }

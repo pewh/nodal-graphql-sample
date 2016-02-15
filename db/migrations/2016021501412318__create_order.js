@@ -14,7 +14,16 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("orders", [{"name":"user_id","type":"int"},{"name":"total_price","type":"currency"},{"name":"status","type":"string"}])
+        this.createTable("orders", [{
+          "name": "userId",
+          "type": "int"
+        }, {
+          "name": "totalPrice",
+          "type": "currency"
+        }, {
+          "name": "status",
+          "type": "string"
+        }])
       ];
 
     }

@@ -14,7 +14,13 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("images", [{"name":"name","type":"string"},{"name":"url","type":"string"}])
+        this.createTable("images", [{
+          "name": "name",
+          "type": "string"
+        }, {
+          "name": "url",
+          "type": "string"
+        }])
       ];
 
     }
