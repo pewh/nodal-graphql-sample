@@ -10,6 +10,7 @@ module.exports = (function() {
     index() {
 
       Order.query()
+        .join('orderDetails')
         .where(this.params.query)
         .end((err, models) => {
 

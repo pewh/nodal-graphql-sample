@@ -22,7 +22,8 @@ module.exports = (function() {
           "type": "int"
         }, {
           "name": "infiniteStock",
-          "type": "boolean"
+          "type": "boolean",
+            "defaultValue": false
         }, {
           "name": "productId",
           "type": "int"

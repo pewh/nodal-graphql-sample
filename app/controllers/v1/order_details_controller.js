@@ -10,10 +10,19 @@ module.exports = (function() {
     index() {
 
       OrderDetail.query()
+        .join('product')
+        .join('category')
         .where(this.params.query)
         .end((err, models) => {
 
-          this.respond(err || models);
+          this.respond(err || models, [
+            'id',
+            { product: ['name', 'description', 'image'] },
+            { category: ['name'] },
+            'purchasingPrice',
+            'sellingPrice',
+            'quantity',
+          ]);
 
         });
 

@@ -5,27 +5,50 @@ module.exports = (function() {
   const Nodal = require('nodal');
   const Product = Nodal.require('app/models/product.js');
 
+  const revealChildrenProps = [
+    'id',
+    'name',
+    'description',
+    'purchasingPrice',
+    'sellingPrice',
+    'updated_at',
+    { image: ['name', 'url'] },
+    { categories: ['id', 'name', 'stock', 'infiniteStock'] },
+  ];
+
   class V1ProductsController extends Nodal.Controller {
 
     index() {
 
       Product.query()
+        .join('image')
+        .join('categories')
         .where(this.params.query)
         .end((err, models) => {
 
-          this.respond(err || models);
+          this.respond(err || models, revealChildrenProps);
 
         });
 
     }
 
     show() {
+      const id = this.params.route.id
 
-      Product.find(this.params.route.id, (err, model) => {
+      Product.query()
+        .join('image')
+        .join('categories')
+        .where({ id })
+        .end((err, models) => {
+          if (!err && !models.length) {
+            let err = new Error(`Could not find Product with id "${id}".`);
+            err.notFound = true;
+            this.respond(err);
+          }
 
-        this.respond(err || model);
+          this.respond(err || models[0], revealChildrenProps);
 
-      });
+        });
 
     }
 
