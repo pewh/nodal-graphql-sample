@@ -31,6 +31,12 @@ module.exports = (function() {
 
   /* generator: begin imports */
 
+  const V1UsersController = Nodal.require('app/controllers/v1/users_controller.js');
+  const V1CategoriesController = Nodal.require('app/controllers/v1/categories_controller.js');
+  const V1ImagesController = Nodal.require('app/controllers/v1/images_controller.js');
+  const V1ProductsController = Nodal.require('app/controllers/v1/products_controller.js');
+  const V1OrderDetailsController = Nodal.require('app/controllers/v1/order_details_controller.js');
+  const V1OrdersController = Nodal.require('app/controllers/v1/orders_controller.js');
 
   /* generator: end imports */
 
@@ -39,6 +45,12 @@ module.exports = (function() {
 
   /* generator: begin routes */
 
+  router.route('/v1/users/{id}').use(V1UsersController);
+  router.route('/v1/categories/{id}').use(V1CategoriesController);
+  router.route('/v1/images/{id}').use(V1ImagesController);
+  router.route('/v1/products/{id}').use(V1ProductsController);
+  router.route('/v1/order_details/{id}').use(V1OrderDetailsController);
+  router.route('/v1/orders/{id}').use(V1OrdersController);
 
   /* generator: end routes */
 

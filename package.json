@@ -8,6 +8,7 @@
     "node": "4.2.4"
   },
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "nodal": "0.7.6"
   },
   "devDependencies": {
@@ -17,6 +18,7 @@
   "scripts": {
     "test": "NODE_ENV=test mocha ./test/runner.js",
     "start": "NODE_ENV=development node cluster.js",
+    "start:win": "set NODE_ENV=development&&node cluster.js",
     "worker": "NODE_ENV=development node worker.js"
   },
   "private": true
