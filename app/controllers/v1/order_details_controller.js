@@ -3,37 +3,66 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
+  const GraphQuery = Nodal.GraphQuery;
   const OrderDetail = Nodal.require('app/models/order_detail.js');
 
   class V1OrderDetailsController extends Nodal.Controller {
 
     index() {
+      const query = `
+        order_detail {
+          id,
+          purchasingPrice,
+          sellingPrice,
+          quantity,
+          category {
+            name
+          },
+          product {
+            name,
+            description,
+            image {
+              name,
+              url
+            }
+          }
+        }
+      `;
 
-      OrderDetail.query()
-        .join('product')
-        .join('category')
-        .where(this.params.query)
-        .end((err, models) => {
-
-          this.respond(err || models, [
-            'id',
-            { product: ['name', 'description', 'image'] },
-            { category: ['name'] },
-            'purchasingPrice',
-            'sellingPrice',
-            'quantity',
-          ]);
-
-        });
-
+      GraphQuery.query(query, 3, (err, models, format) => {
+        this.respond(err || models, format)
+      });
     }
 
     show() {
 
-      OrderDetail.find(this.params.route.id, (err, model) => {
+      const query = `
+        order_detail(id: ${this.params.route.id}) {
+          id,
+          purchasingPrice,
+          sellingPrice,
+          quantity,
+          category {
+            name
+          },
+          product {
+            name,
+            description,
+            image {
+              name,
+              url
+            }
+          },
+          order {
+            id,
+            totalPrice,
+            status
+          }
+        }
+      `;
 
-        this.respond(err || model);
-
+      GraphQuery.query(query, 3, (err, model, format) => {
+        this.respond(err || model, format)
       });
 
     }

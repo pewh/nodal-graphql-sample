@@ -12,6 +12,7 @@ module.exports = (function() {
   OrderDetail.setDatabase(Nodal.require('db/main.js'));
   OrderDetail.setSchema(Nodal.my.Schema.models.OrderDetail);
 
+  OrderDetail.joinsTo(Order, { via: 'orderId', as: 'details', multiple: true });
   OrderDetail.joinsTo(Product, { via: 'productId' });
   OrderDetail.joinsTo(Category, { via: 'categoryId' });
 
