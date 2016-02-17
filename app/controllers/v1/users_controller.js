@@ -7,10 +7,10 @@ module.exports = (function() {
 
   const whitelistProps = [
     'id',
-    'phoneNumber',
+    'phone_number',
     'name',
-    'gcmToken',
-    'subscribeNotification',
+    'gcm_token',
+    'subscribe_notification',
     'created_at',
   ];
 

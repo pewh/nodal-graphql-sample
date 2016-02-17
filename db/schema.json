@@ -12,8 +12,8 @@
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
         {"name": "name", "type": "string", "properties": {}},
         {"name": "stock", "type": "int", "properties": {}},
-        {"name": "infiniteStock", "type": "boolean", "properties": {}},
-        {"name": "productId", "type": "int", "properties": {}},
+        {"name": "infinite_stock", "type": "boolean", "properties": {}},
+        {"name": "product_id", "type": "int", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]
@@ -40,8 +40,8 @@
 
       "columns": [
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
-        {"name": "userId", "type": "int", "properties": {}},
-        {"name": "totalPrice", "type": "currency", "properties": {}},
+        {"name": "user_id", "type": "int", "properties": {}},
+        {"name": "total_price", "type": "currency", "properties": {}},
         {"name": "status", "type": "string", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
@@ -55,11 +55,11 @@
 
       "columns": [
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
-        {"name": "orderId", "type": "int", "properties": {}},
-        {"name": "productId", "type": "int", "properties": {}},
-        {"name": "categoryId", "type": "int", "properties": {}},
-        {"name": "purchasingPrice", "type": "currency", "properties": {}},
-        {"name": "sellingPrice", "type": "currency", "properties": {}},
+        {"name": "order_id", "type": "int", "properties": {}},
+        {"name": "product_id", "type": "int", "properties": {}},
+        {"name": "category_id", "type": "int", "properties": {}},
+        {"name": "purchasing_price", "type": "currency", "properties": {}},
+        {"name": "selling_price", "type": "currency", "properties": {}},
         {"name": "quantity", "type": "int", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
@@ -75,9 +75,9 @@
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
         {"name": "name", "type": "string", "properties": {}},
         {"name": "description", "type": "string", "properties": {}},
-        {"name": "imageId", "type": "int", "properties": {}},
-        {"name": "purchasingPrice", "type": "currency", "properties": {}},
-        {"name": "sellingPrice", "type": "currency", "properties": {}},
+        {"name": "image_id", "type": "int", "properties": {}},
+        {"name": "purchasing_price", "type": "currency", "properties": {}},
+        {"name": "selling_price", "type": "currency", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]
@@ -90,11 +90,11 @@
 
       "columns": [
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
-        {"name": "phoneNumber", "type": "string", "properties": {"unique":true}},
+        {"name": "phone_number", "type": "string", "properties": {"unique":true}},
         {"name": "name", "type": "string", "properties": {}},
         {"name": "password", "type": "string", "properties": {}},
-        {"name": "gcmToken", "type": "string", "properties": {}},
-        {"name": "subscribeNotification", "type": "boolean", "properties": {}},
+        {"name": "gcm_token", "type": "string", "properties": {}},
+        {"name": "subscribe_notification", "type": "boolean", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]

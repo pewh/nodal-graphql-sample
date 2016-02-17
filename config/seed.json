@@ -1,6 +1,36 @@
 {
 
-  "development": {},
+  "development": {
+    "User": [
+      { "phone_number": "1", "name": "foo", "password": "11111" },
+      { "phone_number": "2", "name": "bar", "password": "22222" },
+      { "phone_number": "3", "name": "baz", "password": "33333" }
+    ],
+    "Image": [
+      { "name": "foo", "url": "http://foo.com" },
+      { "name": "bar", "url": "http://bar.com" },
+      { "name": "baz", "url": "http://baz.com" }
+    ],
+    "Product": [
+      { "name": "foo", "image_id": 1, "purchasing_price": 30, "selling_price": 35 },
+      { "name": "bar", "image_id": 2, "purchasing_price": 40, "selling_price": 65, "description": "LOL" },
+      { "name": "baz", "image_id": 3, "purchasing_price": 0, "selling_price": 0 }
+    ],
+    "Category": [
+      { "name": "foo", "stock": 3, "infinite_stock": false, "product_id": 1 },
+      { "name": "bar", "stock": 0, "infinite_stock": true, "product_id": 1 },
+      { "name": "baz", "stock": 0, "infinite_stock": false, "product_id": 2 }
+    ],
+    "Order": [
+      { "user_id": 1, "total_price": 105, "status": "pending" },
+      { "user_id": 2, "total_price": 130, "status": "available" }
+    ],
+    "OrderDetail": [
+      { "order_id": 1, "product_id": 1, "category_id": 1, "purchasing_price": 30, "selling_price": 35, "quantity": 3 },
+      { "order_id": 1, "product_id": 2, "category_id": 3, "purchasing_price": 0, "selling_price": 0, "quantity": 1 },
+      { "order_id": 2, "product_id": 1, "category_id": 2, "purchasing_price": 40, "selling_price": 65, "quantity": 2 }
+    ]
+  },
 
   "test": {},
 

@@ -15,7 +15,7 @@ module.exports = (function() {
 
       return [
         this.createTable("users", [{
-          "name": "phoneNumber",
+          "name": "phone_number",
           "type": "string",
           "properties": {
             "unique": true
@@ -27,10 +27,10 @@ module.exports = (function() {
           "name": "password",
           "type": "string"
         }, {
-          "name": "gcmToken",
+          "name": "gcm_token",
           "type": "string"
         }, {
-          "name": "subscribeNotification",
+          "name": "subscribe_notification",
           "type": "boolean"
         }])
       ];

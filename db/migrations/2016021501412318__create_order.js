@@ -15,10 +15,10 @@ module.exports = (function() {
 
       return [
         this.createTable("orders", [{
-          "name": "userId",
+          "name": "user_id",
           "type": "int"
         }, {
-          "name": "totalPrice",
+          "name": "total_price",
           "type": "currency"
         }, {
           "name": "status",

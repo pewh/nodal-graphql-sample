@@ -10,7 +10,7 @@ module.exports = (function() {
   Category.setDatabase(Nodal.require('db/main.js'));
   Category.setSchema(Nodal.my.Schema.models.Category);
 
-  Category.joinsTo(Product, { via: 'productId', multiple: true });
+  Category.joinsTo(Product, { multiple: true });
 
   return Category;
 

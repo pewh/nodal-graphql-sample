@@ -3,52 +3,58 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
+  const GraphQuery = Nodal.GraphQuery;
   const Product = Nodal.require('app/models/product.js');
-
-  const revealChildrenProps = [
-    'id',
-    'name',
-    'description',
-    'purchasingPrice',
-    'sellingPrice',
-    'updated_at',
-    { image: ['name', 'url'] },
-    { categories: ['id', 'name', 'stock', 'infiniteStock'] },
-  ];
 
   class V1ProductsController extends Nodal.Controller {
 
     index() {
 
-      Product.query()
-        .join('image')
-        .join('categories')
-        .where(this.params.query)
-        .end((err, models) => {
+      const query = `
+        product {
+          id,
+          name,
+          description,
+          purchasing_price,
+          selling_price,
+          updated_at,
+          image { name, url },
+          categories { id, name, stock, infinite_stock },
+        }
+      `;
 
-          this.respond(err || models, revealChildrenProps);
-
-        });
+      GraphQuery.query(query, 2, (err, models, format) => {
+        this.respond(err || models, format)
+      });
 
     }
 
     show() {
+
       const id = this.params.route.id
 
-      Product.query()
-        .join('image')
-        .join('categories')
-        .where({ id })
-        .end((err, models) => {
-          if (!err && !models.length) {
-            let err = new Error(`Could not find Product with id "${id}".`);
-            err.notFound = true;
-            this.respond(err);
-          }
+      const query = `
+        product(id:${id}) {
+          id,
+          name,
+          description,
+          purchasing_price,
+          selling_price,
+          updated_at,
+          image { name, url },
+          categories { id, name, stock, infinite_stock },
+        }
+      `;
 
-          this.respond(err || models[0], revealChildrenProps);
+      GraphQuery.query(query, 2, (err, models, format) => {
+        if (!err && !models.length) {
+          let err = new Error(`Could not find Product with id "${id}".`);
+          err.notFound = true;
+          this.respond(err);
+        }
 
-        });
+        this.respond(err || models[0], format)
+      });
 
     }
 

@@ -21,13 +21,13 @@ module.exports = (function() {
           "name": "description",
           "type": "string"
         }, {
-          "name": "imageId",
+          "name": "image_id",
           "type": "int"
         }, {
-          "name": "purchasingPrice",
+          "name": "purchasing_price",
           "type": "currency"
         }, {
-          "name": "sellingPrice",
+          "name": "selling_price",
           "type": "currency"
         }])
       ];

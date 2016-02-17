@@ -11,7 +11,7 @@ module.exports = (function() {
   Product.setDatabase(Nodal.require('db/main.js'));
   Product.setSchema(Nodal.my.Schema.models.Product);
 
-  Product.joinsTo(Image, { via: 'imageId' });
+  Product.joinsTo(Image);
   Product.joinedBy(Category, { multiple: true });
 
   return Product;

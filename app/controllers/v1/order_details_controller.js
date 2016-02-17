@@ -12,8 +12,8 @@ module.exports = (function() {
       const query = `
         order_detail {
           id,
-          purchasingPrice,
-          sellingPrice,
+          purchasing_price,
+          selling_price,
           quantity,
           category {
             name
@@ -39,8 +39,8 @@ module.exports = (function() {
       const query = `
         order_detail(id: ${this.params.route.id}) {
           id,
-          purchasingPrice,
-          sellingPrice,
+          purchasing_price,
+          selling_price,
           quantity,
           category {
             name

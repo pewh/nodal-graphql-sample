@@ -15,19 +15,19 @@ module.exports = (function() {
 
       return [
         this.createTable("order_details", [{
-          "name": "orderId",
+          "name": "order_id",
           "type": "int"
         }, {
-          "name": "productId",
+          "name": "product_id",
           "type": "int"
         }, {
-          "name": "categoryId",
+          "name": "category_id",
           "type": "int"
         }, {
-          "name": "purchasingPrice",
+          "name": "purchasing_price",
           "type": "currency"
         }, {
-          "name": "sellingPrice",
+          "name": "selling_price",
           "type": "currency"
         }, {
           "name": "quantity",

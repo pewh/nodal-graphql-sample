@@ -9,28 +9,18 @@ module.exports = (function() {
   class V1OrdersController extends Nodal.Controller {
 
     index() {
-      // Order.query()
-      //   .join('details')
-      //   .where(this.params.query)
-      //   .end((err, models) => {
-
-      //     this.respond(err || models, ['id', 'status', 'details']);
-
-      //   });
       const query = `
         order {
           id,
-          totalPrice,
+          total_price,
           status,
-          userId,
-          details {
+          user_id,
+          order_details {
             id,
-            purchasingPrice,
-            sellingPrice,
+            purchasing_price,
+            selling_price,
             quantity,
-            category {
-              name
-            },
+            category,
             product {
               name,
               description,
@@ -43,7 +33,7 @@ module.exports = (function() {
         }
       `;
 
-      GraphQuery.query(query, 5, (err, models, format) => {
+      GraphQuery.query(query, 6, (err, models, format) => {
         this.respond(err || models, format)
       });
     }

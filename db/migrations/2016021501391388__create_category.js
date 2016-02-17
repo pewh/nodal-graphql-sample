@@ -21,11 +21,11 @@ module.exports = (function() {
           "name": "stock",
           "type": "int"
         }, {
-          "name": "infiniteStock",
+          "name": "infinite_stock",
           "type": "boolean",
             "defaultValue": false
         }, {
-          "name": "productId",
+          "name": "product_id",
           "type": "int"
         }])
       ];
