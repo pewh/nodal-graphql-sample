@@ -3,6 +3,7 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
+  const stream = require('stream');
   const Image = Nodal.require('app/models/image.js');
 
   class V1ImagesController extends Nodal.Controller {
@@ -31,11 +32,22 @@ module.exports = (function() {
 
     create() {
 
-      Image.create(this.params.body, (err, model) => {
+      // 1. get form-data buffer
+      let formData
+      const bufferStream = new stream.PassThrough();
+      bufferStream.end(this.params.buffer);
+      bufferStream.pipe(formData); // { name, file }
+      console.log(formData);
 
-        this.respond(err || model);
+      // 2. save as /static/images with yyyymmdd-hhmmss.png
+      // 3. get file path
+      // const body = Object.assign({}, this.params.body, {
+      //  url: filepath
+      // } 
 
-      });
+      // Image.create(body, (err, model) => {
+      //   this.respond(err || model);
+      // });
 
     }
 
